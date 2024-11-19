@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trainenapp/main.dart';
-//import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class Telaeditais extends StatelessWidget {
   const Telaeditais({super.key});
@@ -25,31 +25,49 @@ class Telaeditais extends StatelessWidget {
                    mainAxisAlignment: MainAxisAlignment.center, //Alinhamento centralizado
                     children: <Widget>[
                      const SizedBox(height: 16), //Espaço entre a Container da AppBar 
-            Container(                        
+            GestureDetector(
+              onTap: () async { const url = 'https://www.in.gov.br/en/web/dou/-/edital-n-51-de-10-de-maio-de-2024-559158847';
+                              if (await canLaunchUrlString(url)) {
+                                await launchUrlString(url);
+                              } else {
+                                throw 'Could not launch $url';
+                              }
+                            },
+            child: Container(                        
                 clipBehavior: Clip.antiAlias, //Aplica bordas mais suaves a BoxDecoration
                   decoration:  BoxDecoration( //Decoração da "Caixa"
                     borderRadius: BorderRadius.circular(50), // Ajustar o tamanho radial do circulo
                   ),
-                    child: Image.asset('img/Enem.jpeg',
+                    child: Image.asset('img/ENEM.png',
                     width: 300,
                     height: 200,
                     
                     fit: BoxFit.cover, //Envolver a caixa
                   ),
-                  
-            ), 
+            ),
+            ),
             const SizedBox(height:16),
-                Container( 
+   GestureDetector(
+              onTap: () async { const url = 'https://acervo.fuvest.br/fuvest/2023/fuvest2023_primeira_fase_prova_X.pdf';
+                              if (await canLaunchUrlString(url)) {
+                                await launchUrlString(url);
+                              } else {
+                                throw 'Could not launch $url';
+                              }
+                            },
+            
+                child: Container( 
                   clipBehavior: Clip.antiAlias,
                   decoration:  BoxDecoration(
                   borderRadius: BorderRadius.circular(50) //Espaço entre a Container da AppBar 
                ),
-                child: Image.asset('img/Fuvest.jpeg',
+                child: Image.asset('img/FUVEST.png',
                   width: 300,
                   height: 200,
                   fit: BoxFit.cover,
               ),
             ),
+              ),
               const SizedBox(height: 16), //Espaço entre a container e o botão
                SizedBox(height: 50, //Altura e largura do botão
                         width: 150,

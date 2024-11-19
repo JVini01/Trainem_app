@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trainenapp/main.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class Telaprovas extends StatelessWidget {
   const Telaprovas({super.key});
@@ -23,8 +24,17 @@ class Telaprovas extends StatelessWidget {
                   child: Column( 
                    mainAxisAlignment: MainAxisAlignment.center, //Alinhamento centralizado
                     children: <Widget>[
-                     const SizedBox(height: 16), //Espaço entre a Container da AppBar 
-            Container(                        
+                     const SizedBox(height: 16),
+                      //Espaço entre a Container da AppBar 
+            GestureDetector(
+              onTap: () async { const url = 'https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos';
+                              if (await canLaunchUrlString(url)) {
+                                await launchUrlString(url);
+                              } else {
+                                throw 'Could not launch $url';
+                              }
+                            },                      
+            child: Container(                        
                 clipBehavior: Clip.antiAlias, //Aplica bordas mais suaves a BoxDecoration
                   decoration:  BoxDecoration( //Decoração da "Caixa"
                     borderRadius: BorderRadius.circular(50) // Ajustar o tamanho radial do circulo
@@ -34,11 +44,20 @@ class Telaprovas extends StatelessWidget {
                     height: 200,
                     
                     fit: BoxFit.cover, //Envolver a caixa
-                  ),
-                  
+                  ),  
             ), 
+            ),
             const SizedBox(height:16),
-                Container( 
+            GestureDetector(
+              onTap: () async { const url = 'https://acervo.fuvest.br/?t=vestibular';
+                              if (await canLaunchUrlString(url)) {
+                                await launchUrlString(url);
+                              } else {
+                                throw 'Could not launch $url';
+                              }
+                            },                      
+            
+                child: Container( 
                   clipBehavior: Clip.antiAlias,
                   decoration:  BoxDecoration(
                   borderRadius: BorderRadius.circular(50) //Espaço entre a Container da AppBar 
@@ -48,6 +67,7 @@ class Telaprovas extends StatelessWidget {
                   height: 200,
                   fit: BoxFit.cover,
               ),
+            ),
             ),
               const SizedBox(height: 16), //Espaço entre a container e o botão
                SizedBox(height: 50, //Altura e largura do botão
