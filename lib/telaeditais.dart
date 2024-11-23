@@ -48,7 +48,7 @@ class Telaeditais extends StatelessWidget {
             ),
             const SizedBox(height:16),
    GestureDetector(
-              onTap: () async { const url = 'https://acervo.fuvest.br/fuvest/2023/fuvest2023_primeira_fase_prova_X.pdf';
+              onTap: () async { const url = 'https://www.fuvest.br/wp-content/uploads/fuvest2024_manual_candidato.pdf';
                               if (await canLaunchUrlString(url)) {
                                 await launchUrlString(url);
                               } else {

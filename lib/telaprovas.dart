@@ -39,7 +39,7 @@ class Telaprovas extends StatelessWidget {
                   decoration:  BoxDecoration( //Decoração da "Caixa"
                     borderRadius: BorderRadius.circular(50) // Ajustar o tamanho radial do circulo
                   ),
-                    child: Image.asset('img/Enem.jpeg',
+                    child: Image.asset('img/ENEM.png',
                     width: 300,
                     height: 200,
                     
@@ -49,7 +49,7 @@ class Telaprovas extends StatelessWidget {
             ),
             const SizedBox(height:16),
             GestureDetector(
-              onTap: () async { const url = 'https://acervo.fuvest.br/?t=vestibular';
+              onTap: () async { const url = 'https://acervo.fuvest.br/fuvest/2023/fuvest2023_primeira_fase_prova_X.pdf';
                               if (await canLaunchUrlString(url)) {
                                 await launchUrlString(url);
                               } else {
@@ -62,7 +62,7 @@ class Telaprovas extends StatelessWidget {
                   decoration:  BoxDecoration(
                   borderRadius: BorderRadius.circular(50) //Espaço entre a Container da AppBar 
                ),
-                child: Image.asset('img/Fuvest.jpeg',
+                child: Image.asset('img/FUVEST.png',
                   width: 300,
                   height: 200,
                   fit: BoxFit.cover,
